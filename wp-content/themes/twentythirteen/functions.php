@@ -550,3 +550,59 @@ function twentythirteen_customize_preview_js() {
 	wp_enqueue_script( 'twentythirteen-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20141120', true );
 }
 add_action( 'customize_preview_init', 'twentythirteen_customize_preview_js' );
+
+function wptuts_scripts_basic()
+{
+    // Register the script like this for a plugin:
+    //wp_register_script( 'custom-script', plugins_url( '/js/custom-script.js', __FILE__ ) );
+    // or
+    // Register the script like this for a theme:
+    wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+    wp_register_script( 'addthis_widget-script', get_template_directory_uri() . '/js/new/addthis_widget.js' );
+    wp_enqueue_script( 'common-script' );
+    wp_enqueue_script( 'addthis_widget-script' );
+    // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+    // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+    // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+    // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+    // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+    // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+
+    // Register the style like this for a plugin:
+    // wp_register_style( 'custom-style', plugins_url( '/css/custom-style.css', __FILE__ ), array(), '20120208', 'all' );
+    // or
+    // Register the style like this for a theme:
+    wp_register_style( 'slideshow-style', get_template_directory_uri() . '/css/new/slideshow.css', array(), '20120208', 'all' );
+    wp_register_style( 'specialfont-style', get_template_directory_uri() . '/css/new/specialfont.css', array(), '20120208', 'all' );
+    wp_register_style( 'stylesheet-style', get_template_directory_uri() . '/css/new/stylesheet.css', array(), '20120208', 'all' );
+	wp_enqueue_style( 'slideshow-style' );
+	wp_enqueue_style( 'specialfont-style' );
+	wp_enqueue_style( 'stylesheet-style' );
+    // // For either a plugin or a theme, you can then enqueue the style:
+    // wp_enqueue_style( 'custom-style' );
+ 
+    // // For either a plugin or a theme, you can then enqueue the script:
+
+}
+add_action( 'wp_enqueue_scripts', 'wptuts_scripts_basic' );
+
+//Register Navigations
+add_action( 'init', 'my_custom_menus' );
+function my_custom_menus() {
+   register_nav_menus(
+        array(
+            // 'primary-menu' => __( 'Primary Menu' ),
+            'secondary-menu' => __( 'Footer Menu' )
+        )
+    );
+}
+
+if (class_exists('MultiPostThumbnails')) {
+    new MultiPostThumbnails(
+        array(
+            'label' => 'Main Image',
+            'id' => 'main-image',
+            'post_type' => 'post'
+        )
+    );
+}

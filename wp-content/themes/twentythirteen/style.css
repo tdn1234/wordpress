@@ -680,7 +680,7 @@ img[class*="attachment-"] {
 img.size-full,
 img.size-large,
 img.wp-post-image {
-	height: auto;
+	height: 169px;
 	max-width: 100%;
 }
 
@@ -823,7 +823,7 @@ img.wp-smiley,
 	display: block;
 	margin: 0 auto;
 	max-width: 1080px;
-	min-height: 230px;
+	/*min-height: 230px;*/
 	padding: 0 20px;
 	text-decoration: none;
 	width: 100%;

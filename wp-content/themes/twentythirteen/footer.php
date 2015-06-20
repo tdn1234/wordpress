@@ -11,14 +11,14 @@
 ?>
 
 		</div><!-- #main -->
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			<?php get_sidebar( 'main' ); ?>
+		<div id="footer" >
+			<?php wp_nav_menu( array( 'theme_location' => 'secondary-menu', 'menu_class' => '', 'menu_id' => '' ) ); ?>
 
 			<div class="site-info">
 				<?php do_action( 'twentythirteen_credits' ); ?>
 				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'twentythirteen' ) ); ?>" title="<?php esc_attr_e( 'Semantic Personal Publishing Platform', 'twentythirteen' ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentythirteen' ), 'WordPress' ); ?></a>
 			</div><!-- .site-info -->
-		</footer><!-- #colophon -->
+		</div><!-- #footer -->
 	</div><!-- #page -->
 
 	<?php wp_footer(); ?>
