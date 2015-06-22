@@ -83,7 +83,7 @@ function twentythirteen_setup() {
 	 */
 	add_theme_support( 'html5', array(
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
-	) );
+		) );
 
 	/*
 	 * This theme supports all available post formats by default.
@@ -91,7 +91,7 @@ function twentythirteen_setup() {
 	 */
 	add_theme_support( 'post-formats', array(
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
-	) );
+		) );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menu( 'primary', __( 'Navigation Menu', 'twentythirteen' ) );
@@ -145,7 +145,7 @@ function twentythirteen_fonts_url() {
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
 			'subset' => urlencode( 'latin,latin-ext' ),
-		);
+			);
 		$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
 	}
 
@@ -235,7 +235,7 @@ function twentythirteen_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-	) );
+		) );
 
 	register_sidebar( array(
 		'name'          => __( 'Secondary Widget Area', 'twentythirteen' ),
@@ -245,7 +245,7 @@ function twentythirteen_widgets_init() {
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-	) );
+		) );
 }
 add_action( 'widgets_init', 'twentythirteen_widgets_init' );
 
@@ -267,11 +267,11 @@ function twentythirteen_paging_nav() {
 		<div class="nav-links">
 
 			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentythirteen' ) ); ?></div>
+				<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'twentythirteen' ) ); ?></div>
 			<?php endif; ?>
 
 			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?></div>
+				<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?></div>
 			<?php endif; ?>
 
 		</div><!-- .nav-links -->
@@ -342,7 +342,7 @@ function twentythirteen_entry_meta() {
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'twentythirteen' ), get_the_author() ) ),
 			get_the_author()
-		);
+			);
 	}
 }
 endif;
@@ -369,7 +369,7 @@ function twentythirteen_entry_date( $echo = true ) {
 		esc_attr( sprintf( __( 'Permalink to %s', 'twentythirteen' ), the_title_attribute( 'echo=0' ) ) ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( sprintf( $format_prefix, get_post_format_string( get_post_format() ), get_the_date() ) )
-	);
+		);
 
 	if ( $echo )
 		echo $date;
@@ -414,7 +414,7 @@ function twentythirteen_the_attached_image() {
 		'post_mime_type' => 'image',
 		'order'          => 'ASC',
 		'orderby'        => 'menu_order ID',
-	) );
+		) );
 
 	// If there is more than 1 attachment in a gallery...
 	if ( count( $attachment_ids ) > 1 ) {
@@ -438,7 +438,7 @@ function twentythirteen_the_attached_image() {
 		esc_url( $next_attachment_url ),
 		the_title_attribute( array( 'echo' => false ) ),
 		wp_get_attachment_image( $post->ID, $attachment_size )
-	);
+		);
 }
 endif;
 
@@ -474,8 +474,8 @@ if ( ! function_exists( 'twentythirteen_excerpt_more' ) && ! is_admin() ) :
 function twentythirteen_excerpt_more( $more ) {
 	$link = sprintf( '<a href="%1$s" class="more-link">%2$s</a>',
 		esc_url( get_permalink( get_the_ID() ) ),
-			/* translators: %s: Name of current post */
-			sprintf( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'twentythirteen' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
+		/* translators: %s: Name of current post */
+		sprintf( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'twentythirteen' ), '<span class="screen-reader-text">' . get_the_title( get_the_ID() ) . '</span>' )
 		);
 	return ' &hellip; ' . $link;
 }
@@ -557,10 +557,10 @@ function wptuts_scripts_basic()
     //wp_register_script( 'custom-script', plugins_url( '/js/custom-script.js', __FILE__ ) );
     // or
     // Register the script like this for a theme:
-    wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
-    wp_register_script( 'addthis_widget-script', get_template_directory_uri() . '/js/new/addthis_widget.js' );
-    wp_enqueue_script( 'common-script' );
-    wp_enqueue_script( 'addthis_widget-script' );
+	wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
+    // wp_register_script( 'addthis_widget-script', get_template_directory_uri() . '/js/new/addthis_widget.js' );
+	wp_enqueue_script( 'common-script' );
+	wp_enqueue_script( 'addthis_widget-script' );
     // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
     // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
     // wp_register_script( 'common-script', get_template_directory_uri() . '/js/new/common.js' );
@@ -572,15 +572,15 @@ function wptuts_scripts_basic()
     // wp_register_style( 'custom-style', plugins_url( '/css/custom-style.css', __FILE__ ), array(), '20120208', 'all' );
     // or
     // Register the style like this for a theme:
-    wp_register_style( 'slideshow-style', get_template_directory_uri() . '/css/new/slideshow.css', array(), '20120208', 'all' );
-    wp_register_style( 'specialfont-style', get_template_directory_uri() . '/css/new/specialfont.css', array(), '20120208', 'all' );
-    wp_register_style( 'stylesheet-style', get_template_directory_uri() . '/css/new/stylesheet.css', array(), '20120208', 'all' );
+	wp_register_style( 'slideshow-style', get_template_directory_uri() . '/css/new/slideshow.css', array(), '20120208', 'all' );
+	wp_register_style( 'specialfont-style', get_template_directory_uri() . '/css/new/specialfont.css', array(), '20120208', 'all' );
+	wp_register_style( 'stylesheet-style', get_template_directory_uri() . '/css/new/stylesheet.css', array(), '20120208', 'all' );
 	wp_enqueue_style( 'slideshow-style' );
 	wp_enqueue_style( 'specialfont-style' );
 	wp_enqueue_style( 'stylesheet-style' );
     // // For either a plugin or a theme, you can then enqueue the style:
     // wp_enqueue_style( 'custom-style' );
- 
+
     // // For either a plugin or a theme, you can then enqueue the script:
 
 }
@@ -589,20 +589,29 @@ add_action( 'wp_enqueue_scripts', 'wptuts_scripts_basic' );
 //Register Navigations
 add_action( 'init', 'my_custom_menus' );
 function my_custom_menus() {
-   register_nav_menus(
-        array(
+	register_nav_menus(
+		array(
             // 'primary-menu' => __( 'Primary Menu' ),
-            'secondary-menu' => __( 'Footer Menu' )
-        )
-    );
+			'secondary-menu' => __( 'Footer Menu' )
+			)
+		);
 }
 
 if (class_exists('MultiPostThumbnails')) {
-    new MultiPostThumbnails(
-        array(
-            'label' => 'Main Image',
-            'id' => 'main-image',
-            'post_type' => 'post'
-        )
-    );
+	new MultiPostThumbnails(
+		array(
+			'label' => 'Main Image',
+			'id' => 'main-image',
+			'post_type' => 'post'
+			)
+		);
 }
+
+function do_rewrite(){
+	global $wp_rewrite;    // unset($wp_rewrite['permalink_structure']);    var_dump($wp_rewrite);die;    add_rewrite_rule(        'pub/(.+?)/?$',        'index.php?type=$matches[1]',        'top'    );
+	add_rewrite_rule(        '(.+?)/pub/(.+?)/?$',        'index.php?p=$matches[1]&type=$matches[2]',        'top'    );
+	flush_rewrite_rules();
+}
+
+add_action ('init', 'do_rewrite');
+

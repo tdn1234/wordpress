@@ -70,7 +70,7 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', true);
 define('FS_METHOD', 'direct');
-define( ‘UPLOADS’, ‘wp-content/’.’mynewupload’ );
+define( ‘UPLOADS’, ‘wp-content/’.’uploads’ );
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
